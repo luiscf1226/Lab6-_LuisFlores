@@ -3,7 +3,16 @@ import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -49,6 +58,24 @@ public class Principal extends javax.swing.JFrame {
         cb_genero = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jd2 = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        cb_1 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        fech = new javax.swing.JTextField();
+        cnombre1 = new javax.swing.JTextField();
+        punt = new javax.swing.JSpinner();
+        a1 = new javax.swing.JRadioButton();
+        d2 = new javax.swing.JRadioButton();
+        s1 = new javax.swing.JRadioButton();
+        p2 = new javax.swing.JRadioButton();
+        cb_genero1 = new javax.swing.JComboBox<>();
+        jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -185,6 +212,129 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(70, 70, 70))
         );
 
+        jLabel7.setText("Nombre Programa");
+
+        jLabel8.setText("Puntuacion");
+
+        jLabel9.setText("Fecha");
+
+        jLabel10.setText("Tipo");
+
+        jLabel11.setText("Genero");
+
+        jLabel12.setText("Listas");
+
+        a1.setText("Anime");
+
+        d2.setText("Documental ");
+
+        s1.setText("Serie");
+
+        p2.setText("Pelicula");
+
+        cb_genero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedia", "romance", "terror", "syfy", "suspenso", "accion", " " }));
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton7.setText("Guardar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(cb_1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fech, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(punt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(d2)
+                            .addComponent(a1))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p2)
+                            .addComponent(s1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cb_genero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(124, 124, 124))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(punt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(a1)
+                    .addComponent(s1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d2)
+                    .addComponent(p2))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_genero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd2Layout = new javax.swing.GroupLayout(jd2.getContentPane());
+        jd2.getContentPane().setLayout(jd2Layout);
+        jd2Layout.setHorizontalGroup(
+            jd2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd2Layout.setVerticalGroup(
+            jd2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -197,9 +347,19 @@ public class Principal extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Crear Programa");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Cargar Archivo");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Guardar Archivo ");
@@ -356,19 +516,20 @@ public class Principal extends javax.swing.JFrame {
                 genero = "Accion";
             }
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb.getModel();
-
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_1.getModel();
             Programas p = new Programas(name, p2, f, tipo, genero);
 //        
 
             cb.setModel(modelo);
+            cb_1.setModel(modelo2);
             Claudilist c = new Claudilist();
             c.getLista().add(p);
             c.setNombre(cnombre.getText());
             modelo.addElement(c);
+            modelo2.addElement(c);
             cnombre.setText("");
             a_nombre.setText("");
-            fecha1.setText("");
-            
+
             JOptionPane.showMessageDialog(this, "La Claudilist ha sido creada exitosamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR AL CREAR");
@@ -414,7 +575,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-          if (cb.getSelectedIndex() >= 0) {
+        if (cb.getSelectedIndex() >= 0) {
 
             try {
                 ((Claudilist) (cb.getSelectedItem())).escribirArchivo();
@@ -425,6 +586,138 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El archivo se ha guardo correctamente");
         }
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        try {
+            String name = cnombre1.getText();
+            int p2 = (int) punt.getValue();
+            String f = fech.getText();
+            String tipo = "", genero = "";
+
+            if (a1.isSelected()) {
+                tipo = "Anime";
+            }
+            if (s1.isSelected()) {
+                tipo = "Serie";
+            }
+            if (d2.isSelected()) {
+                tipo = "Documental";
+            }
+            if (p1.isSelected()) {
+                tipo = "anime";
+            }
+            if (cb_genero1.getSelectedIndex() == 0) {
+                genero = "comedia";
+            }
+            if (cb_genero1.getSelectedIndex() == 1) {
+                genero = "romance";
+            }
+            if (cb_genero1.getSelectedIndex() == 2) {
+                genero = "terror";
+            }
+            if (cb_genero1.getSelectedIndex() == 3) {
+                genero = "Syfy";
+            }
+            if (cb_genero1.getSelectedIndex() == 4) {
+                genero = "Suspenso";
+            }
+            if (cb_genero1.getSelectedIndex() == 5) {
+                genero = "Accion";
+            }
+            Claudilist x=(Claudilist)cb_1.getSelectedItem();
+            Programas p=new Programas(name,p2,f,tipo,genero);
+            x.getLista().add(p);
+             cnombre.setText("");
+            a_nombre.setText("");
+            JOptionPane.showMessageDialog(this, "PROGRAMA AGREGADO");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ERROR");
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+         jd2.setModal(true);
+        jd2.pack();
+        jd2.setLocationRelativeTo(this);
+        jd2.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+         DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        Scanner sc = null;
+ 
+        try {
+            ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+        } catch (Exception e) {
+        }
+  
+        JFileChooser fileChooser = new JFileChooser("./");
+
+        int seleccion = fileChooser.showOpenDialog(this);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            limpiar();
+            
+            try {
+
+                File archivo = fileChooser.getSelectedFile();
+                Claudilist p = new Claudilist();
+
+                String nombre = archivo.getName();
+                int l = nombre.length();
+
+                nombre = nombre.substring(0, l - 4);
+
+                p.setNombre(nombre);
+                modelc.setSelectedItem(p);
+                sc = new Scanner(archivo);
+
+                String file = "";
+
+                while (sc.hasNext()) {
+                    file += sc.next();
+
+                }
+                String result = file.replace("|", "/");
+
+                sc = new Scanner(result);
+                sc.useDelimiter("/");
+
+                while (sc.hasNext()) {
+
+                    Programas c = new Programas(sc.next(), sc.nextInt(), sc.next(),
+                            sc.next(), sc.next());
+
+                    Object[] newRow = {
+                        c.getNombre(),
+                        c.getPuntuacion(),
+                        c.getFecha(),
+                        c.getTipo(),
+                        c.getGenero()
+                    };
+                    modelt.addRow(newRow);
+
+                    p.getLista().add(c);
+
+                }
+
+                modelc.addElement(p);
+                jTable1.setModel(modelt);
+                cb.setModel(modelc);
+
+            } catch (Exception e) {
+            }
+        }
+
+
+
+        
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -463,13 +756,19 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton a;
+    private javax.swing.JRadioButton a1;
     private javax.swing.JTextField a_nombre;
     private javax.swing.JSpinner a_punt;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb;
+    private javax.swing.JComboBox<String> cb_1;
     private javax.swing.JComboBox<String> cb_genero;
+    private javax.swing.JComboBox<String> cb_genero1;
     private javax.swing.JTextField cnombre;
+    private javax.swing.JTextField cnombre1;
     private javax.swing.JRadioButton d;
+    private javax.swing.JRadioButton d2;
+    private javax.swing.JTextField fech;
     private javax.swing.JTextField fecha1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -477,21 +776,33 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd1;
+    private javax.swing.JDialog jd2;
     private javax.swing.JRadioButton p1;
+    private javax.swing.JRadioButton p2;
+    private javax.swing.JSpinner punt;
     private javax.swing.JRadioButton s;
+    private javax.swing.JRadioButton s1;
     // End of variables declaration//GEN-END:variables
 private void limpiar() {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
