@@ -7,6 +7,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -14,6 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,6 +83,29 @@ public class Principal extends javax.swing.JFrame {
         jp1 = new javax.swing.JPopupMenu();
         editar = new javax.swing.JMenuItem();
         delete = new javax.swing.JMenuItem();
+        jd3 = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        n = new javax.swing.JRadioButton();
+        f = new javax.swing.JRadioButton();
+        t = new javax.swing.JRadioButton();
+        g = new javax.swing.JRadioButton();
+        p = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        n1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        score = new javax.swing.JSpinner();
+        jLabel17 = new javax.swing.JLabel();
+        date = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        type = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        g1 = new javax.swing.JButton();
+        g2 = new javax.swing.JButton();
+        g3 = new javax.swing.JButton();
+        g4 = new javax.swing.JButton();
+        g5 = new javax.swing.JButton();
+        gen = new javax.swing.JComboBox<>();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -338,10 +364,215 @@ public class Principal extends javax.swing.JFrame {
         );
 
         editar.setText("Modificar");
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
         jp1.add(editar);
 
         delete.setText("Eliminar");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
         jp1.add(delete);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setText("Que Desea Modificar");
+
+        buttonGroup2.add(n);
+        n.setText("Nombre");
+        n.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(f);
+        f.setText("Fecha");
+        f.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(t);
+        t.setText("Tipo");
+        t.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(g);
+        g.setText("Genero");
+        g.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(p);
+        p.setText("Puntuacion");
+        p.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Nombre");
+
+        jLabel16.setText("Puntuacion");
+
+        jLabel17.setText("Fecha");
+
+        date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Tipo");
+
+        jLabel19.setText("Genero");
+
+        g1.setText("Guardar Nombre");
+        g1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                g1MouseClicked(evt);
+            }
+        });
+
+        g2.setText("Guardar Puntuacion");
+        g2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                g2MouseClicked(evt);
+            }
+        });
+
+        g3.setText("Guardar Fecha");
+        g3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                g3MouseClicked(evt);
+            }
+        });
+
+        g4.setText("Guardar Tipo");
+        g4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g4ActionPerformed(evt);
+            }
+        });
+
+        g5.setText("Guardar Genero");
+        g5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g5ActionPerformed(evt);
+            }
+        });
+
+        gen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedia", "romance", "terror", "syfy", "suspenso", "accion", " " }));
+
+        javax.swing.GroupLayout jd3Layout = new javax.swing.GroupLayout(jd3.getContentPane());
+        jd3.getContentPane().setLayout(jd3Layout);
+        jd3Layout.setHorizontalGroup(
+            jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd3Layout.createSequentialGroup()
+                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd3Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(n)
+                        .addGap(18, 18, 18)
+                        .addComponent(p)
+                        .addGap(39, 39, 39)
+                        .addComponent(f, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(t)
+                        .addGap(18, 18, 18)
+                        .addComponent(g))
+                    .addGroup(jd3Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd3Layout.createSequentialGroup()
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel19))
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd3Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jd3Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(gen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jd3Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(g2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(g1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(g3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(g4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(g5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd3Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+        jd3Layout.setVerticalGroup(
+            jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd3Layout.createSequentialGroup()
+                        .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jd3Layout.createSequentialGroup()
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(n)
+                                    .addComponent(f)
+                                    .addComponent(t)
+                                    .addComponent(g)
+                                    .addComponent(p))
+                                .addGap(65, 65, 65)
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(g1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(g2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd3Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(g3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel17)))
+                                .addGap(35, 35, 35)
+                                .addComponent(g4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel18)
+                                .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(g5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(gen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -391,6 +622,11 @@ public class Principal extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable1);
@@ -619,10 +855,10 @@ public class Principal extends javax.swing.JFrame {
             if (cb_genero1.getSelectedIndex() == 5) {
                 genero = "Accion";
             }
-            Claudilist x=(Claudilist)cb_1.getSelectedItem();
-            Programas p=new Programas(name,p2,f,tipo,genero);
+            Claudilist x = (Claudilist) cb_1.getSelectedItem();
+            Programas p = new Programas(name, p2, f, tipo, genero);
             x.getLista().add(p);
-             cnombre.setText("");
+            cnombre.setText("");
             a_nombre.setText("");
             JOptionPane.showMessageDialog(this, "PROGRAMA AGREGADO");
 
@@ -633,7 +869,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-         jd2.setModal(true);
+        jd2.setModal(true);
         jd2.pack();
         jd2.setLocationRelativeTo(this);
         jd2.setVisible(true);
@@ -641,31 +877,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-         DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
         DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
-        
+
         Scanner sc = null;
- 
+
         try {
             ((Claudilist) cb.getSelectedItem()).escribirArchivo();
         } catch (Exception e) {
         }
-  
+
         JFileChooser fileChooser = new JFileChooser("./");
 
         int seleccion = fileChooser.showOpenDialog(this);
 
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             limpiar();
-            
+
             try {
 
                 File archivo = fileChooser.getSelectedFile();
-                 DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_1.getModel();
-                    
+                DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_1.getModel();
+
                 Claudilist p = new Claudilist();
                 cb_1.setModel(modelc);
-                     modelo3.addElement(p);
+                modelo3.addElement(p);
                 String nombre = archivo.getName();
                 int l = nombre.length();
 
@@ -690,8 +926,7 @@ public class Principal extends javax.swing.JFrame {
 
                     Programas c = new Programas(sc.next(), sc.nextInt(), sc.next(),
                             sc.next(), sc.next());
-                     
-                   
+
                     Object[] newRow = {
                         c.getNombre(),
                         c.getPuntuacion(),
@@ -700,7 +935,7 @@ public class Principal extends javax.swing.JFrame {
                         c.getGenero()
                     };
                     modelt.addRow(newRow);
-                   
+
                     p.getLista().add(c);
 
                 }
@@ -714,9 +949,271 @@ public class Principal extends javax.swing.JFrame {
         }
 
 
-
-        
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            if (jTable1.getSelectedRow() >= 0) {
+                jp1.show(jTable1, evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+
+        int index = jTable1.getSelectedRow();
+
+        Programas c = new Programas(
+                (String) modelo.getValueAt(index, 0),
+                (int) modelo.getValueAt(index, 1),
+                (String) modelo.getValueAt(index, 2),
+                (String) modelo.getValueAt(index, 3),
+                (String) modelo.getValueAt(index, 4)
+        );
+        ((Claudilist) cb.getSelectedItem()).getLista().remove(index);
+        modelo.removeRow(index);
+
+        Creadas.add(c);
+
+        jTable1.setModel(modelo);
+
+        JOptionPane.showMessageDialog(this, "ELIMINADO EXITOSAMENTE");
+        try {
+            ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gActionPerformed
+        // TODO add your handling code here:
+        jLabel15.setVisible(false);
+        n1.setVisible(false);
+        jLabel16.setVisible(false);
+        score.setVisible(false);
+        date.setVisible(false);
+        jLabel17.setVisible(false);
+        type.setVisible(false);
+        jLabel18.setVisible(false);
+        gen.setVisible(true);
+        jLabel19.setVisible(true);
+        g1.setVisible(false);
+        g2.setVisible(false);
+        g3.setVisible(false);
+        g4.setVisible(false);
+        g5.setVisible(true);
+
+    }//GEN-LAST:event_gActionPerformed
+
+    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateActionPerformed
+
+    private void nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nActionPerformed
+        // TODO add your handling code here:
+        jLabel15.setVisible(true);
+        n1.setVisible(true);
+        jLabel16.setVisible(false);
+        score.setVisible(false);
+        date.setVisible(false);
+        jLabel17.setVisible(false);
+        type.setVisible(false);
+        jLabel18.setVisible(false);
+        gen.setVisible(false);
+        jLabel19.setVisible(false);
+        g1.setVisible(true);
+        g2.setVisible(false);
+        g3.setVisible(false);
+        g4.setVisible(false);
+        g5.setVisible(false);
+
+    }//GEN-LAST:event_nActionPerformed
+
+    private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
+        // TODO add your handling code here:
+        jLabel15.setVisible(false);
+        n1.setVisible(false);
+        jLabel16.setVisible(true);
+        score.setVisible(true);
+        date.setVisible(false);
+        jLabel17.setVisible(false);
+        type.setVisible(false);
+        jLabel18.setVisible(false);
+        gen.setVisible(false);
+        jLabel19.setVisible(false);
+        g1.setVisible(false);
+        g2.setVisible(true);
+        g3.setVisible(false);
+        g4.setVisible(false);
+        g5.setVisible(false);
+    }//GEN-LAST:event_pActionPerformed
+
+    private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
+        // TODO add your handling code here:
+        jLabel15.setVisible(false);
+        n1.setVisible(false);
+        jLabel16.setVisible(false);
+        score.setVisible(false);
+        date.setVisible(true);
+        jLabel17.setVisible(true);
+        type.setVisible(false);
+        jLabel18.setVisible(false);
+        gen.setVisible(false);
+        jLabel19.setVisible(false);
+        g1.setVisible(false);
+        g2.setVisible(false);
+        g3.setVisible(true);
+        g4.setVisible(false);
+        g5.setVisible(false);
+    }//GEN-LAST:event_fActionPerformed
+
+    private void tActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tActionPerformed
+        // TODO add your handling code here:
+        jLabel15.setVisible(false);
+        n1.setVisible(false);
+        jLabel16.setVisible(false);
+        score.setVisible(false);
+        date.setVisible(false);
+        jLabel17.setVisible(false);
+        type.setVisible(true);
+        jLabel18.setVisible(true);
+        gen.setVisible(false);
+        jLabel19.setVisible(false);
+        g1.setVisible(false);
+        g2.setVisible(false);
+        g3.setVisible(false);
+        g4.setVisible(true);
+        g5.setVisible(false);
+    }//GEN-LAST:event_tActionPerformed
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        // TODO add your handling code here:
+        jd3.setModal(true);
+        jd3.pack();
+        jd3.setLocationRelativeTo(this);
+        jd3.setVisible(true);
+    }//GEN-LAST:event_editarActionPerformed
+
+    private void g1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_g1MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable1.getSelectedRow() >= 0) {
+            int indice = jTable1.getSelectedRow();
+            modelt.setValueAt(n1.getText(), indice, 0);
+            jTable1.setModel(modelt);
+            ((Claudilist) cb.getSelectedItem()).getLista().get(indice).setNombre(n1.getText());
+
+            try {
+                ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_g1MouseClicked
+
+    private void g2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_g2MouseClicked
+        // TODO add your handling code here: DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable1.getSelectedRow() >= 0) {
+            int indice = jTable1.getSelectedRow();
+            
+            int p11 = (int) score.getValue();
+            modelt.setValueAt((int) score.getValue(), indice, 1);
+            jTable1.setModel(modelt);
+            ((Claudilist) cb.getSelectedItem()).getLista().get(indice).setPuntuacion(p11);
+
+            try {
+                ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_g2MouseClicked
+
+    private void g3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_g3MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable1.getSelectedRow() >= 0) {
+            int indice = jTable1.getSelectedRow();
+            modelt.setValueAt(date.getText(), indice, 2);
+            jTable1.setModel(modelt);
+            ((Claudilist) cb.getSelectedItem()).getLista().get(indice).setFecha(date.getText());
+
+            try {
+                ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_g3MouseClicked
+
+    private void g4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g4ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable1.getSelectedRow() >= 0) {
+            int indice = jTable1.getSelectedRow();
+            modelt.setValueAt(type.getText(), indice, 3);
+            jTable1.setModel(modelt);
+            ((Claudilist) cb.getSelectedItem()).getLista().get(indice).setTipo(type.getText());
+
+            try {
+                ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_g4ActionPerformed
+
+    private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable1.getSelectedRow() >= 0) {
+            int indice = jTable1.getSelectedRow();
+            
+            String genero = "";
+            if (cb_genero1.getSelectedIndex() == 0) {
+                genero = "comedia";
+            }
+            if (cb_genero1.getSelectedIndex() == 1) {
+                genero = "romance";
+            }
+            if (cb_genero1.getSelectedIndex() == 2) {
+                genero = "terror";
+            }
+            if (cb_genero1.getSelectedIndex() == 3) {
+                genero = "Syfy";
+            }
+            if (cb_genero1.getSelectedIndex() == 4) {
+                genero = "Suspenso";
+            }
+            if (cb_genero1.getSelectedIndex() == 5) {
+                genero = "Accion";
+            }
+          
+            modelt.setValueAt(genero, indice, 4);
+            jTable1.setModel(modelt);
+            ((Claudilist) cb.getSelectedItem()).getLista().get(indice).setGenero(genero);
+
+            try {
+                ((Claudilist) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_g5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -759,6 +1256,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField a_nombre;
     private javax.swing.JSpinner a_punt;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cb;
     private javax.swing.JComboBox<String> cb_1;
     private javax.swing.JComboBox<String> cb_genero;
@@ -767,10 +1265,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField cnombre1;
     private javax.swing.JRadioButton d;
     private javax.swing.JRadioButton d2;
+    private javax.swing.JTextField date;
     private javax.swing.JMenuItem delete;
     private javax.swing.JMenuItem editar;
+    private javax.swing.JRadioButton f;
     private javax.swing.JTextField fech;
     private javax.swing.JTextField fecha1;
+    private javax.swing.JRadioButton g;
+    private javax.swing.JButton g1;
+    private javax.swing.JButton g2;
+    private javax.swing.JButton g3;
+    private javax.swing.JButton g4;
+    private javax.swing.JButton g5;
+    private javax.swing.JComboBox<String> gen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -783,6 +1290,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -797,12 +1310,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd1;
     private javax.swing.JDialog jd2;
+    private javax.swing.JDialog jd3;
     private javax.swing.JPopupMenu jp1;
+    private javax.swing.JRadioButton n;
+    private javax.swing.JTextField n1;
+    private javax.swing.JRadioButton p;
     private javax.swing.JRadioButton p1;
     private javax.swing.JRadioButton p2;
     private javax.swing.JSpinner punt;
     private javax.swing.JRadioButton s;
     private javax.swing.JRadioButton s1;
+    private javax.swing.JSpinner score;
+    private javax.swing.JRadioButton t;
+    private javax.swing.JTextField type;
     // End of variables declaration//GEN-END:variables
 private void limpiar() {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -834,4 +1354,5 @@ private void limpiar() {
             }
         });
     }
+    ArrayList<Programas> Creadas = new ArrayList();
 }
