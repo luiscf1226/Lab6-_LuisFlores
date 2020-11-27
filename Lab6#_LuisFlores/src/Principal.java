@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -76,6 +77,9 @@ public class Principal extends javax.swing.JFrame {
         p2 = new javax.swing.JRadioButton();
         cb_genero1 = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
+        jp1 = new javax.swing.JPopupMenu();
+        editar = new javax.swing.JMenuItem();
+        delete = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -84,10 +88,8 @@ public class Principal extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         cb = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nombre Claudilist");
@@ -335,6 +337,12 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        editar.setText("Modificar");
+        jp1.add(editar);
+
+        delete.setText("Eliminar");
+        jp1.add(delete);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -401,21 +409,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Herramientas CRUD");
-
-        jMenuItem1.setText("Eliminar Archivo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Modificar Archivo");
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
+        jLabel13.setText("Right Click a Tabla para Crud");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -435,8 +429,10 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(399, 399, 399)
-                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(421, Short.MAX_VALUE))
+                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(304, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -448,7 +444,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -462,15 +460,11 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
         // TODO add your handling code here:
@@ -649,6 +643,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
          DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
         DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        
         Scanner sc = null;
  
         try {
@@ -666,8 +661,11 @@ public class Principal extends javax.swing.JFrame {
             try {
 
                 File archivo = fileChooser.getSelectedFile();
+                 DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_1.getModel();
+                    
                 Claudilist p = new Claudilist();
-
+                cb_1.setModel(modelc);
+                     modelo3.addElement(p);
                 String nombre = archivo.getName();
                 int l = nombre.length();
 
@@ -692,7 +690,8 @@ public class Principal extends javax.swing.JFrame {
 
                     Programas c = new Programas(sc.next(), sc.nextInt(), sc.next(),
                             sc.next(), sc.next());
-
+                     
+                   
                     Object[] newRow = {
                         c.getNombre(),
                         c.getPuntuacion(),
@@ -701,7 +700,7 @@ public class Principal extends javax.swing.JFrame {
                         c.getGenero()
                     };
                     modelt.addRow(newRow);
-
+                   
                     p.getLista().add(c);
 
                 }
@@ -768,6 +767,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField cnombre1;
     private javax.swing.JRadioButton d;
     private javax.swing.JRadioButton d2;
+    private javax.swing.JMenuItem delete;
+    private javax.swing.JMenuItem editar;
     private javax.swing.JTextField fech;
     private javax.swing.JTextField fecha1;
     private javax.swing.JButton jButton1;
@@ -781,6 +782,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -789,15 +791,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd1;
     private javax.swing.JDialog jd2;
+    private javax.swing.JPopupMenu jp1;
     private javax.swing.JRadioButton p1;
     private javax.swing.JRadioButton p2;
     private javax.swing.JSpinner punt;
