@@ -1,4 +1,10 @@
 Apparitions/5/1972/Serie/terror/
 AshvsDevil/4/2011/Serie/terror/
 BlackSummer/6/2011/Serie/terror/
-Castle Rock/4/2012/Serie/comedia/
+CastleRock/4/2012/Serie/terror/
+Castlvania/6/1989/Serie/terror/
+Chambers/5/2013/Serie/terror/
+DarkWeb/7/2000/Serie/terror/
+Exorcist/3/2016/Serie/terror/
+Folkore/6/2019/Serie/terror/
+Haunted/6/2018/Serie/terror/
