@@ -52,7 +52,7 @@ public class Hilo extends Thread {
 
         while (true) {
             if (avanzar) {
-                progBar.setMaximum(10);
+                progBar.setMaximum(20);
                 progBar.setValue(progBar.getValue() + 1);
                 //activar y modificar propiedad stringPainted para que esto funciones
                 progBar.setString(Integer.toString(progBar.getValue()) + " Pasando");
