@@ -843,7 +843,12 @@ public class Main extends javax.swing.JFrame {
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sActionPerformed
-
+    
+    /**
+     * 
+     * @param evt 
+     * metodo usado para crear claudilist y controlador de combo boxes
+     */
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
         try {
@@ -903,7 +908,11 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ERROR AL CREAR");
         }
     }//GEN-LAST:event_jButton5MouseClicked
-
+/**
+ * 
+ * @param evt metodo usado para llamar al frame
+ * 
+ */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         jd1.setModal(true);
@@ -911,7 +920,10 @@ public class Main extends javax.swing.JFrame {
         jd1.setLocationRelativeTo(this);
         jd1.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
-
+/**
+ * 
+ * @param evt metodo usado para conseguir que la combo box llene la lista segun cambia
+ */
     private void cbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbItemStateChanged
         // TODO add your handling code here:
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb.getModel();
@@ -935,14 +947,20 @@ public class Main extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_cbItemStateChanged
-
+/**
+ * metodo sencillo solo manda a llamar el limpiador de tabla
+ * @param evt 
+ */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         limpiar();
 
 
     }//GEN-LAST:event_jButton6ActionPerformed
-
+/**
+ * guaradador de archivo usa la clase administradora
+ * @param evt 
+ */
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         if (cb.getSelectedIndex() >= 0) {
@@ -956,7 +974,10 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El archivo se ha guardo correctamente");
         }
     }//GEN-LAST:event_jButton4MouseClicked
-
+/**
+ * este boton crea un programa y lo agrega a una claudilist ya existente
+ * @param evt 
+ */
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
         try {
@@ -1007,7 +1028,10 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ERROR");
         }
     }//GEN-LAST:event_jButton7MouseClicked
-
+/**
+ * ventana abierta
+ * @param evt 
+ */
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         jd2.setModal(true);
@@ -1015,7 +1039,10 @@ public class Main extends javax.swing.JFrame {
         jd2.setLocationRelativeTo(this);
         jd2.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
-
+/**
+ * metodo file chooser para escoger
+ * @param evt 
+ */
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
@@ -1091,7 +1118,10 @@ public class Main extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton3MouseClicked
-
+/**
+ * manda a llamar al popuo menu
+ * @param evt 
+ */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         if (evt.isMetaDown()) {
@@ -1100,7 +1130,10 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jTable1MouseClicked
-
+/**
+ * borra segun el pop up menu
+ * @param evt 
+ */
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
@@ -1128,7 +1161,10 @@ public class Main extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_deleteActionPerformed
-
+/**
+ * hago que sea visible o no segun el usuario
+ * @param evt 
+ */
     private void gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gActionPerformed
         // TODO add your handling code here:
         jLabel15.setVisible(false);
@@ -1237,7 +1273,10 @@ public class Main extends javax.swing.JFrame {
         jd3.setLocationRelativeTo(this);
         jd3.setVisible(true);
     }//GEN-LAST:event_editarActionPerformed
-
+/**
+ * cambia la lista
+ * @param evt 
+ */
     private void g1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_g1MouseClicked
         // TODO add your handling code here:
         DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
@@ -1315,7 +1354,10 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cambiado");
         }
     }//GEN-LAST:event_g4ActionPerformed
-
+/**
+ * otro metodo que hace que cambie todo
+ * @param evt 
+ */
     private void g5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g5ActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelt = (DefaultTableModel) jTable1.getModel();
@@ -1355,7 +1397,10 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cambiado");
         }
     }//GEN-LAST:event_g5ActionPerformed
-
+/**
+ * metodo que hace que el carbol cargue segun nodos de programass
+ * @param evt 
+ */
     private void mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarMouseClicked
         try {
              DefaultTreeModel m = (DefaultTreeModel) arbol.getModel();// agarrar Modelo Arbol
@@ -1402,7 +1447,10 @@ public class Main extends javax.swing.JFrame {
        
 
     }//GEN-LAST:event_mostrarMouseClicked
-
+/**
+ * metodo que hace que la netflix tabla se cargue
+ * @param evt 
+ */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         try {
