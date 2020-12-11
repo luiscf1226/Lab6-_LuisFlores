@@ -1267,64 +1267,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_g5ActionPerformed
 
     private void jb_MostrarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_MostrarArbolMouseClicked
-        DefaultTreeModel modelt = (DefaultTreeModel) arbol_Playlist.getModel();
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_Playlists.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelt.getRoot();
-        boolean noArt = false;
-
-        raiz.removeAllChildren();
-
-        if (cb_Playlists.getSelectedIndex() >= 0) {
-            Playlist p = (Playlist) cb_Playlists.getSelectedItem();
-
-            for (int i = 0; i < p.getListaCanciones().size(); i++) {
-                Cancion c = p.getListaCanciones().get(i);
-
-                for (int j = 0; j < raiz.getChildCount(); j++) {
-                    DefaultMutableTreeNode nodoArt = (DefaultMutableTreeNode) raiz.getChildAt(j);
-
-                    if (nodoArt.toString().equals(c.getArtista())) {
-                        DefaultMutableTreeNode nombre = new DefaultMutableTreeNode(c.getNombre());
-                        DefaultMutableTreeNode punt = new DefaultMutableTreeNode("Puntuacion: " + c.getPuntuacion());
-                        DefaultMutableTreeNode year = new DefaultMutableTreeNode("Year: " + c.getAnio());
-                        DefaultMutableTreeNode album = new DefaultMutableTreeNode("Album: " + c.getAlbum());
-
-                        nombre.add(album);
-                        nombre.add(year);
-                        nombre.add(punt);
-                        nodoArt.add(nombre);
-
-                        raiz.add(nodoArt);
-
-                        noArt = true;
-                    } else {
-                        noArt = false;
-                    }
-
-                }
-
-                if (noArt == false) {
-                    DefaultMutableTreeNode nombre = new DefaultMutableTreeNode(c.getNombre());
-                    DefaultMutableTreeNode punt = new DefaultMutableTreeNode("Puntuacion: " + c.getPuntuacion());
-                    DefaultMutableTreeNode year = new DefaultMutableTreeNode("Year: " + c.getAnio());
-                    DefaultMutableTreeNode artista = new DefaultMutableTreeNode(c.getArtista());
-                    DefaultMutableTreeNode album = new DefaultMutableTreeNode("Album: " + c.getAlbum());
-                    nombre.add(punt);
-                    nombre.add(year);
-                    nombre.add(album);
-                    artista.add(nombre);
-                    raiz.add(artista);
-                }
-            }
-
-            modelt.reload();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "No hay una Playlist seleccionada");
-
-            JOptionPane.showMessageDialog(this, "El arbol ha sido llenado");
-
-        }
+        
 
     }//GEN-LAST:event_jb_MostrarArbolMouseClicked
 
